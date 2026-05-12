@@ -9,7 +9,7 @@ const CONTENT = {
     de: 'Robuste Backend-Systeme und Integrationen für produktive Unternehmensprozesse.',
     en: 'Robust backend systems and integrations for production enterprise workflows.',
   },
-  status: 'Verfügbar',
+  status: 'Projektbasiert · Remote',
 
   about: [
     "Moderne Backend-Entwicklung für produktive Unternehmenssysteme. Ich entwickle APIs, Integrationen und Backend-Anwendungen für ERP-, E-Commerce- und Industriesysteme — mit Fokus auf <strong>Stabilität, Wartbarkeit und saubere Architektur.</strong>",

@@ -2,6 +2,14 @@
 
 function Topbar({ onToggleTheme }) {
   const scrolled = useScrolled(8);
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const navLinks = [
+    { href: '#work', label: 'Arbeiten' },
+    { href: '#about', label: 'Über' },
+    { href: '#stack', label: 'Stack' },
+    { href: '#referenzen', label: 'Referenzen' },
+    { href: '#contact', label: 'Kontakt' },
+  ];
   return (
     <header className={`topbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="topbar-left">
@@ -11,26 +19,39 @@ function Topbar({ onToggleTheme }) {
         <span className="topbar-name" style={{ fontSize: "20px" }}>Gabor Szücs</span>
       </div>
       <nav className="topbar-nav" aria-label="Sections">
-        <a href="#work">Arbeiten</a>
-        <a href="#about">Über</a>
-        <a href="#stack">Stack</a>
-        <a href="#referenzen">Referenzen</a>
-        <a href="#contact">Kontakt</a>
+        {navLinks.map(l => <a key={l.href} href={l.href}>{l.label}</a>)}
       </nav>
       <div className="topbar-right">
         <button
           className="theme-toggle"
           aria-label="Theme umschalten"
           onClick={(e) => onToggleTheme(e.currentTarget)}>
-          
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="4"></circle>
             <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
           </svg>
         </button>
+        <button
+          className="hamburger"
+          aria-label="Menü öffnen"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(o => !o)}>
+          <span className={`ham-icon ${menuOpen ? 'open' : ''}`}>
+            <span></span><span></span><span></span>
+          </span>
+        </button>
       </div>
+      {menuOpen && (
+        <nav className="mobile-nav" aria-label="Mobile Navigation">
+          {navLinks.map(l => (
+            <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
+          ))}
+          <a href="#contact" className="mobile-nav-cta" onClick={() => setMenuOpen(false)}>
+            Projekt anfragen →
+          </a>
+        </nav>
+      )}
     </header>);
-
 }
 
 
@@ -55,10 +76,20 @@ function Hero() {
           <dt>Standort</dt>
           <dd>{c.location}</dd>
           <dt>Fokus</dt>
-          <dd>ERP · E-Commerce · Industrie · Full-Stack (mit Partner)</dd>
+          <dd className="focus-chips">
+            {['ERP', 'E-Commerce', 'Industrie', 'Full-Stack'].map(tag => (
+              <span key={tag} className="focus-chip">{tag}</span>
+            ))}
+          </dd>
           <dt>Sprachen</dt>
           <dd>DE · EN · HU</dd>
         </dl>
+      </div>
+      <div className="hero-actions reveal">
+        <a href="#contact" className="hero-cta">
+          Projekt anfragen
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
       </div>
     </section>);
 

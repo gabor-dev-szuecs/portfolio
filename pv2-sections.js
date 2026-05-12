@@ -4,6 +4,23 @@ function Topbar({
   onToggleTheme
 }) {
   const scrolled = useScrolled(8);
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const navLinks = [{
+    href: '#work',
+    label: 'Arbeiten'
+  }, {
+    href: '#about',
+    label: 'Über'
+  }, {
+    href: '#stack',
+    label: 'Stack'
+  }, {
+    href: '#referenzen',
+    label: 'Referenzen'
+  }, {
+    href: '#contact',
+    label: 'Kontakt'
+  }];
   return /*#__PURE__*/React.createElement("header", {
     className: `topbar ${scrolled ? 'scrolled' : ''}`
   }, /*#__PURE__*/React.createElement("div", {
@@ -22,17 +39,10 @@ function Topbar({
   }, "Gabor Sz\xFCcs")), /*#__PURE__*/React.createElement("nav", {
     className: "topbar-nav",
     "aria-label": "Sections"
-  }, /*#__PURE__*/React.createElement("a", {
-    href: "#work"
-  }, "Arbeiten"), /*#__PURE__*/React.createElement("a", {
-    href: "#about"
-  }, "\xDCber"), /*#__PURE__*/React.createElement("a", {
-    href: "#stack"
-  }, "Stack"), /*#__PURE__*/React.createElement("a", {
-    href: "#referenzen"
-  }, "Referenzen"), /*#__PURE__*/React.createElement("a", {
-    href: "#contact"
-  }, "Kontakt")), /*#__PURE__*/React.createElement("div", {
+  }, navLinks.map(l => /*#__PURE__*/React.createElement("a", {
+    key: l.href,
+    href: l.href
+  }, l.label))), /*#__PURE__*/React.createElement("div", {
     className: "topbar-right"
   }, /*#__PURE__*/React.createElement("button", {
     className: "theme-toggle",
@@ -53,7 +63,25 @@ function Topbar({
     r: "4"
   }), /*#__PURE__*/React.createElement("path", {
     d: "M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
-  })))));
+  }))), /*#__PURE__*/React.createElement("button", {
+    className: "hamburger",
+    "aria-label": "Men\xFC \xF6ffnen",
+    "aria-expanded": menuOpen,
+    onClick: () => setMenuOpen(o => !o)
+  }, /*#__PURE__*/React.createElement("span", {
+    className: `ham-icon ${menuOpen ? 'open' : ''}`
+  }, /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null)))), menuOpen && /*#__PURE__*/React.createElement("nav", {
+    className: "mobile-nav",
+    "aria-label": "Mobile Navigation"
+  }, navLinks.map(l => /*#__PURE__*/React.createElement("a", {
+    key: l.href,
+    href: l.href,
+    onClick: () => setMenuOpen(false)
+  }, l.label)), /*#__PURE__*/React.createElement("a", {
+    href: "#contact",
+    className: "mobile-nav-cta",
+    onClick: () => setMenuOpen(false)
+  }, "Projekt anfragen \u2192")));
 }
 function Hero() {
   const c = window.CONTENT;
@@ -76,7 +104,28 @@ function Hero() {
     className: "hero-meta reveal"
   }, /*#__PURE__*/React.createElement("dt", null, "Status"), /*#__PURE__*/React.createElement("dd", null, /*#__PURE__*/React.createElement("span", {
     className: "status-dot"
-  }), c.status), /*#__PURE__*/React.createElement("dt", null, "Standort"), /*#__PURE__*/React.createElement("dd", null, c.location), /*#__PURE__*/React.createElement("dt", null, "Fokus"), /*#__PURE__*/React.createElement("dd", null, "ERP \xB7 E-Commerce \xB7 Industrie \xB7 Full-Stack (mit Partner)"), /*#__PURE__*/React.createElement("dt", null, "Sprachen"), /*#__PURE__*/React.createElement("dd", null, "DE \xB7 EN \xB7 HU"))));
+  }), c.status), /*#__PURE__*/React.createElement("dt", null, "Standort"), /*#__PURE__*/React.createElement("dd", null, c.location), /*#__PURE__*/React.createElement("dt", null, "Fokus"), /*#__PURE__*/React.createElement("dd", {
+    className: "focus-chips"
+  }, ['ERP', 'E-Commerce', 'Industrie', 'Full-Stack'].map(tag => /*#__PURE__*/React.createElement("span", {
+    key: tag,
+    className: "focus-chip"
+  }, tag))), /*#__PURE__*/React.createElement("dt", null, "Sprachen"), /*#__PURE__*/React.createElement("dd", null, "DE \xB7 EN \xB7 HU"))), /*#__PURE__*/React.createElement("div", {
+    className: "hero-actions reveal"
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "#contact",
+    className: "hero-cta"
+  }, "Projekt anfragen", /*#__PURE__*/React.createElement("svg", {
+    width: "14",
+    height: "14",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M5 12h14M13 6l6 6-6 6"
+  })))));
 }
 function About() {
   const c = window.CONTENT;

@@ -9,7 +9,7 @@ const CONTENT = {
     de: 'Robuste Backend-Systeme und Integrationen für produktive Unternehmensprozesse.',
     en: 'Robust backend systems and integrations for production enterprise workflows.'
   },
-  status: 'Verfügbar',
+  status: 'Projektbasiert · Remote',
   about: ["Moderne Backend-Entwicklung für produktive Unternehmenssysteme. Ich entwickle APIs, Integrationen und Backend-Anwendungen für ERP-, E-Commerce- und Industriesysteme — mit Fokus auf <strong>Stabilität, Wartbarkeit und saubere Architektur.</strong>", "Mein Anspruch sind Lösungen, die nicht nur heute funktionieren, sondern <strong>langfristig zuverlässig betrieben und weiterentwickelt</strong> werden können.", "Erfahrung aus produktiven Unternehmensumgebungen in der Medizintechnik — von ERP-Schnittstellen und Legacy-Systemen bis zu LDAP-/Active-Directory-Integrationen und eigener Infrastruktur."],
   principles: [{
     k: 'Architektur',
