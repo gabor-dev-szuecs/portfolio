@@ -28,7 +28,7 @@ const CONTENT = {
     n: '01',
     de: 'Pick-by-Light Kommissionierungssystem',
     en: 'Industrial · Java · SPS-Anbindung',
-    stack: ['Java', 'JavaFX', 'Spring Boot', 'TCP/IP', 'Oxaion ERP', 'Offline-Sync'],
+    stack: ['Java', 'JavaFX', 'TCP/IP', 'Oxaion ERP', 'Offline-Sync'],
     bullets: ['JavaFX-Anwendung für die Lagerkommissionierung — Vollständiges Refactoring auf produktionsreife Architektur.', 'Anbindung an Oxaion ERP über API: Abruf von Entnahmescheinen, Rückmeldung von Pickvorgängen.', 'Direkte Kommunikation mit SPS-Steuerungen via TCP/IP zur Ansteuerung der Pick-by-Light-Indikatoren.', 'Offline-fähig mit lokalem Cache und automatischer Synchronisation bei Reconnect.']
   }, {
     n: '02',

@@ -300,7 +300,6 @@ function Contact() {
           <div className="contact-socials">
             <a href={c.contact.email}>E-Mail ↗</a>
             <a href={c.contact.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a href={c.contact.github} target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
 

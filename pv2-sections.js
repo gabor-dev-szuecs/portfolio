@@ -346,11 +346,7 @@ function Contact() {
     href: c.contact.linkedin,
     target: "_blank",
     rel: "noopener"
-  }, "LinkedIn \u2197"), /*#__PURE__*/React.createElement("a", {
-    href: c.contact.github,
-    target: "_blank",
-    rel: "noopener"
-  }, "GitHub \u2197"))), /*#__PURE__*/React.createElement("div", {
+  }, "LinkedIn \u2197"))), /*#__PURE__*/React.createElement("div", {
     className: "contact-form-wrap reveal"
   }, status === 'sent' ? /*#__PURE__*/React.createElement("div", {
     className: "contact-success"
