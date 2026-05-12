@@ -338,7 +338,7 @@ function Contact() {
     className: "contact-title"
   }, "Projekt in Planung?", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("em", null, "Lassen Sie uns sprechen.")), /*#__PURE__*/React.createElement("p", {
     className: "contact-body"
-  }, "Ich nehme ausgew\xE4hlte Projekte an \u2014 mit Schwerpunkt auf Backend-Entwicklung, API-Integrationen und Enterprise-Systemen. Wenn Sie eine technisch solide, langfristig wartbare Umsetzung suchen, freue ich mich \xFCber Ihre Anfrage."), /*#__PURE__*/React.createElement("div", {
+  }, "Backend, API-Integrationen, Enterprise-Systeme \u2014 und mit meinem Partner auch das komplette Frontend. Schreiben Sie mir \u2014 ich antworte pers\xF6nlich und schnell."), /*#__PURE__*/React.createElement("div", {
     className: "contact-socials"
   }, /*#__PURE__*/React.createElement("a", {
     href: c.contact.email

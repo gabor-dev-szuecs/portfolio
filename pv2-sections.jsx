@@ -292,10 +292,9 @@ function Contact() {
             <em>Lassen Sie uns sprechen.</em>
           </h2>
           <p className="contact-body">
-            Ich nehme ausgewählte Projekte an — mit Schwerpunkt auf
-            Backend-Entwicklung, API-Integrationen und Enterprise-Systemen.
-            Wenn Sie eine technisch solide, langfristig wartbare Umsetzung
-            suchen, freue ich mich über Ihre Anfrage.
+            Backend, API-Integrationen, Enterprise-Systeme — und mit meinem
+            Partner auch das komplette Frontend.
+            Schreiben Sie mir — ich antworte persönlich und schnell.
           </p>
           <div className="contact-socials">
             <a href={c.contact.email}>E-Mail ↗</a>
