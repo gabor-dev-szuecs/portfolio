@@ -77,7 +77,7 @@ function Hero() {
           <dd>{c.location}</dd>
           <dt>Fokus</dt>
           <dd className="focus-chips">
-            {['ERP', 'E-Commerce', 'Industrie', 'Full-Stack · Partner'].map(tag => (
+            {['Backend & APIs', 'ERP & E-Commerce', 'Industrie', 'Full-Stack · Partner'].map(tag => (
               <span key={tag} className="focus-chip">{tag}</span>
             ))}
           </dd>
