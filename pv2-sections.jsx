@@ -33,17 +33,6 @@ function Topbar({ onToggleTheme }) {
 
 }
 
-function IssueStrip() {
-  return (
-    <div className="shell">
-      <div className="issue-strip">
-        <span>Issue №02 · 2026</span>
-        <span>Edition: Editorial Engineering</span>
-        <span>Ecknach, DE · 48°N 11°E</span>
-      </div>
-    </div>);
-
-}
 
 function Hero() {
   const c = window.CONTENT;
@@ -335,4 +324,4 @@ function Footer() {
 
 }
 
-Object.assign(window, { Topbar, IssueStrip, Hero, About, Projects, Stack, Languages, References, Contact, Footer });
+Object.assign(window, { Topbar, Hero, About, Projects, Stack, Languages, References, Contact, Footer });
