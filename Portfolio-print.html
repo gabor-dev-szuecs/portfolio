@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="de" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,46 +8,135 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pv2-styles.css" />
+
   <style>
-    @media print {
-      @page { size: A4; margin: 14mm; }
-      :root { --pad-section: 24px; }
-      html, body { background: #fff !important; }
-      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-
-      /* Disable sticky/fixed/animation */
-      .nav { position: static !important; backdrop-filter: none !important; background: #fff !important; border-bottom: 1px solid var(--border) !important; }
-      .theme-toggle, .nav-cta { display: none !important; }
-      [data-reveal] { opacity: 1 !important; transform: none !important; }
-      .status-pulse::after { display: none !important; }
-      .hero-aurora, .hero-bg { display: none !important; }
-
-      main > section { padding-top: 24px !important; padding-bottom: 24px !important; }
-      .hero { padding-top: 12px !important; padding-bottom: 16px !important; }
-
-      /* Page breaks per major section */
-      #about, #work, #services, #stack, #experience, #contact { break-before: page; }
-      .project-card, .service, .timeline-row, .stack-cell, .about-stat, .contact-card { break-inside: avoid; }
-      h1, h2, h3, h4 { break-after: avoid; }
-
-      /* Typography down-tune for print */
-      .hero h1 { font-size: 40px !important; }
-      .section-title { font-size: 28px !important; }
-      .project-card.featured .project-visual { height: 200px !important; }
-      .project-visual { height: 140px !important; }
-      .container { max-width: 100% !important; padding: 0 !important; }
-
-      /* Hide tweaks panel if it ever renders */
-      [class*="tweaks"], [data-tweaks] { display: none !important; }
-
-      /* Ensure project grid stays 2-up but compact */
-      .projects-grid { gap: 12px !important; }
-      .project-card { padding: 16px !important; }
-      .footer { break-before: avoid; padding: 16px 0 !important; }
+    /* ───── Print-specific ───── */
+    @page {
+      size: A4 portrait;
+      margin: 14mm 14mm 14mm 14mm;
     }
+
+    html, body {
+      background: #fbfaf6 !important;
+      color: #131110 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Hide interactive chrome */
+    .topbar,
+    .cursor-ring,
+    .tweaks-panel,
+    [class*="twk-"],
+    .theme-toggle {
+      display: none !important;
+    }
+
+    /* Static container — drop max-width clamp so we use the page area */
+    .shell { max-width: 100% !important; padding: 0 !important; }
+
+    /* Kill hover/transitions everywhere in print */
+    *, *::before, *::after {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+
+    /* Reveal fix — make sure nothing stays hidden */
+    .reveal { opacity: 1 !important; transform: none !important; }
+
+    /* Hero scaled for paper */
+    .hero { padding: 0 0 16mm 0 !important; }
+    .hero-title { font-size: 56pt !important; line-height: 0.95 !important; }
+    .hero-grid { margin-top: 10mm !important; gap: 10mm !important; }
+    .hero-lead { font-size: 13pt !important; line-height: 1.45 !important; max-width: none !important; }
+    .hero-lead .dropcap { font-size: 4.6em !important; }
+    .hero-meta { border-left: 1px solid #d9d3c6 !important; padding-left: 6mm !important; }
+    .hero-meta dd { font-size: 11pt !important; }
+    .hero-meta dt { font-size: 8.5pt !important; }
+    .hero-kicker { font-size: 9pt !important; margin-bottom: 8mm !important; }
+    .issue-strip { font-size: 8.5pt !important; padding: 8px 0 !important; }
+
+    .section {
+      padding: 12mm 0 !important;
+      break-inside: avoid;
+      break-before: page;
+    }
+    .section-head { margin-bottom: 8mm !important; gap: 10mm !important; }
+    .section-title { font-size: 30pt !important; line-height: 1.05 !important; }
+    .section-num { font-size: 9pt !important; }
+    .section-sub { font-size: 9pt !important; }
+
+    /* About */
+    .about-grid { gap: 10mm !important; }
+    .about-photo { aspect-ratio: 4 / 5; max-height: 110mm; }
+    .about-body { font-size: 11.5pt !important; line-height: 1.5 !important; max-width: none !important; }
+    .about-body p:first-child::first-letter { font-size: 2.8em !important; }
+
+    /* Projects: each project tries to live on its own page */
+    .project {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      padding: 10mm 0 !important;
+      gap: 8mm !important;
+    }
+    .project + .project { break-before: page; }
+    .project-num { font-size: 28pt !important; }
+    .project-main h3 { font-size: 18pt !important; line-height: 1.15 !important; }
+    .project-main .en-title { font-size: 8.5pt !important; margin-bottom: 5mm !important; }
+    .project-main .stack span { font-size: 8pt !important; padding: 2px 8px !important; }
+    .project-body { font-size: 10.5pt !important; }
+    .project-body li { font-size: 10.5pt !important; line-height: 1.45 !important; }
+
+    /* Stack grid: collapse to columns that fit A4 width */
+    .stack-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      break-inside: avoid;
+    }
+    .stack-cat { padding: 6mm 6mm !important; break-inside: avoid; }
+    .stack-cat h4 { font-size: 8.5pt !important; margin-bottom: 4mm !important; }
+    .stack-cat li { font-size: 11pt !important; }
+
+    /* Languages + Education */
+    .lang-grid { gap: 10mm !important; break-inside: avoid; }
+    .lang-row .name { font-size: 14pt !important; }
+    .lang-row .level { font-size: 8.5pt !important; }
+    .edu-card { padding: 6mm !important; }
+    .edu-card .title { font-size: 14pt !important; }
+    .edu-card .org { font-size: 10pt !important; }
+    .edu-card .when { font-size: 8.5pt !important; margin-top: 4mm !important; }
+
+    /* Contact */
+    .contact { padding: 14mm 0 !important; break-before: page; }
+    .contact-title { font-size: 48pt !important; line-height: 0.95 !important; margin-bottom: 10mm !important; }
+    .contact-links a {
+      font-size: 10pt !important;
+      padding: 6px 14px !important;
+      border: 1px solid #131110 !important;
+    }
+    .contact-links a.primary { background: #131110 !important; color: #fbfaf6 !important; }
+
+    /* Footer */
+    .footer { font-size: 8.5pt !important; padding: 6mm 0 !important; }
+
+    /* Force light theme & solid colors */
+    :root, html[data-theme] {
+      --bg: #fbfaf6 !important;
+      --bg-2: #efece4 !important;
+      --paper: #fbfaf6 !important;
+      --ink: #131110 !important;
+      --ink-soft: #4a463f !important;
+      --ink-mute: #8c867c !important;
+      --rule: #d9d3c6 !important;
+    }
+
+    /* Avoid orphan/widow breaks inside headings & list items */
+    h1, h2, h3, h4, li { break-inside: avoid; }
+
+    /* Print-only page header on first page only via running counters not used here */
   </style>
 </head>
 <body>
@@ -57,12 +146,46 @@
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-  <script type="text/babel" src="tweaks-panel.jsx"></script>
-  <script type="text/babel" src="app.jsx"></script>
+  <script type="text/babel" src="pv2-data.jsx"></script>
   <script type="text/babel">
+    // Print build: minimal effect stubs so sections render statically
+    const { useEffect } = React;
+    function useReveal() {}
+    function useScrolled() { return false; }
+    function CursorRing() { return null; }
+    function MagnetWrap({ children }) { return <span>{children}</span>; }
+    function toggleTheme() {}
+    Object.assign(window, { useReveal, useScrolled, CursorRing, MagnetWrap, toggleTheme });
+  </script>
+  <script type="text/babel" src="pv2-sections.jsx"></script>
+  <script type="text/babel">
+    function App() {
+      return (
+        <>
+          <IssueStrip />
+          <Hero />
+          <About />
+          <Projects />
+          <Stack />
+          <Languages />
+          <Contact />
+          <Footer />
+        </>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+    // Auto-print once everything is settled
     (async () => {
-      try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch (e) {}
-      setTimeout(() => window.print(), 700);
+      try {
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+      } catch (e) {}
+      // Wait for layout + ensure reveal class doesn't block
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+      await new Promise(r => setTimeout(r, 700));
+      window.print();
     })();
   </script>
 </body>
