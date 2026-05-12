@@ -573,6 +573,7 @@ html[data-mode="mono"] .project-main h3 {
 
 /* ────── Responsive ────── */
 @media (max-width: 900px) {
+  :root { --pad: 24px; }
   .topbar-nav { display: none; }
   .hamburger { display: flex; }
   .hero-grid { grid-template-columns: 1fr; }
@@ -582,7 +583,6 @@ html[data-mode="mono"] .project-main h3 {
     padding: 0 !important; font-weight: inherit; font-style: inherit;
     color: inherit; font-variation-settings: inherit;
   }
-  .hero-meta { padding-left: 16px; }
   .section-head { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .about-photo { max-width: 320px; }

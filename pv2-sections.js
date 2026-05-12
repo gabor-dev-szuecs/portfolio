@@ -103,7 +103,7 @@ function Hero() {
     className: "status-dot"
   }), c.status), /*#__PURE__*/React.createElement("dt", null, "Standort"), /*#__PURE__*/React.createElement("dd", null, c.location), /*#__PURE__*/React.createElement("dt", null, "Fokus"), /*#__PURE__*/React.createElement("dd", {
     className: "focus-chips"
-  }, ['ERP', 'E-Commerce', 'Industrie', 'Full-Stack'].map(tag => /*#__PURE__*/React.createElement("span", {
+  }, ['ERP', 'E-Commerce', 'Industrie', 'Full-Stack · Partner'].map(tag => /*#__PURE__*/React.createElement("span", {
     key: tag,
     className: "focus-chip"
   }, tag))), /*#__PURE__*/React.createElement("dt", null, "Sprachen"), /*#__PURE__*/React.createElement("dd", null, "DE \xB7 EN \xB7 HU"))), /*#__PURE__*/React.createElement("div", {
