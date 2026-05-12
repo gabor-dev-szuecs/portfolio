@@ -573,11 +573,11 @@ html[data-mode="mono"] .project-main h3 {
 
 /* ────── Responsive ────── */
 @media (max-width: 900px) {
-  :root { --pad: 24px; }
+  .shell { padding-left: 24px; padding-right: 24px; }
   .topbar-nav { display: none; }
   .hamburger { display: flex; }
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-meta { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 20px; }
+  .hero-meta { border-left: none; border-top: 1px solid var(--rule); padding-left: 16px; padding-top: 20px; }
   .hero-lead .dropcap {
     float: none; font-size: 1em; line-height: inherit;
     padding: 0 !important; font-weight: inherit; font-style: inherit;
