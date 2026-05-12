@@ -67,7 +67,7 @@ function Hero() {
 
       <div className="hero-grid">
         <p className="hero-lead reveal">
-          <span className="dropcap" style={{ padding: "8px 14px 0px 0px" }}>E</span>
+          <span className="dropcap">E</span>
           ntwicklung robuster Java-Backends, REST-APIs und Integrationen für produktive Unternehmenssysteme — von ERP- und E-Commerce-Plattformen bis zu industriellen Steuerungen. Fokus auf saubere Architektur, Wartbarkeit und langfristig stabile Software.
         </p>
         <dl className="hero-meta reveal">

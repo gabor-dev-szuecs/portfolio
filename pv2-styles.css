@@ -175,7 +175,7 @@ html[data-theme="dark"] .topbar-logo { filter: invert(1); }
   float: left;
   font-size: 5.6em;
   line-height: 0.82;
-  padding: 8px 12px 0 0;
+  padding: 8px 14px 0 0;
   font-weight: 600;
   font-style: italic;
   color: var(--accent);
@@ -579,9 +579,10 @@ html[data-mode="mono"] .project-main h3 {
   .hero-meta { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 20px; }
   .hero-lead .dropcap {
     float: none; font-size: 1em; line-height: inherit;
-    padding: 0; font-weight: inherit; font-style: inherit;
+    padding: 0 !important; font-weight: inherit; font-style: inherit;
     color: inherit; font-variation-settings: inherit;
   }
+  .hero-meta { padding-left: 16px; }
   .section-head { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .about-photo { max-width: 320px; }

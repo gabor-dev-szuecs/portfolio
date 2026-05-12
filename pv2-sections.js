@@ -96,10 +96,7 @@ function Hero() {
   }, /*#__PURE__*/React.createElement("p", {
     className: "hero-lead reveal"
   }, /*#__PURE__*/React.createElement("span", {
-    className: "dropcap",
-    style: {
-      padding: "8px 14px 0px 0px"
-    }
+    className: "dropcap"
   }, "E"), "ntwicklung robuster Java-Backends, REST-APIs und Integrationen f\xFCr produktive Unternehmenssysteme \u2014 von ERP- und E-Commerce-Plattformen bis zu industriellen Steuerungen. Fokus auf saubere Architektur, Wartbarkeit und langfristig stabile Software."), /*#__PURE__*/React.createElement("dl", {
     className: "hero-meta reveal"
   }, /*#__PURE__*/React.createElement("dt", null, "Status"), /*#__PURE__*/React.createElement("dd", null, /*#__PURE__*/React.createElement("span", {
