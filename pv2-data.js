@@ -45,7 +45,7 @@ const CONTENT = {
   }, {
     n: '04',
     de: 'Magento 2 B2B Schnittstelle',
-    en: 'REST API · OAuth2 · Monitoring',
+    en: 'REST API · Monitoring',
     stack: ['Java', 'Magento 2 REST', 'MSSQL', 'Grafana'],
     bullets: ['Weiterentwicklung und Performance-Optimierung der Schnittstelle zwischen Backend und Magento 2 B2B.', 'Umsetzung neuer fachlicher Anforderungen mit Fokus auf Stabilität und Antwortzeiten.']
   }, {
