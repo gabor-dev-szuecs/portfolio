@@ -349,7 +349,10 @@ function Footer() {
     <footer className="shell footer">
       <span>© {year} Gabor Szücs</span>
       <span></span>
-      <span></span>
+      <div className="footer-legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
     </footer>);
 
 }

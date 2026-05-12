@@ -408,7 +408,13 @@ function Footer() {
   const year = new Date().getFullYear();
   return /*#__PURE__*/React.createElement("footer", {
     className: "shell footer"
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 ", year, " Gabor Sz\xFCcs"), /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null));
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 ", year, " Gabor Sz\xFCcs"), /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("div", {
+    className: "footer-legal"
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "impressum.html"
+  }, "Impressum"), /*#__PURE__*/React.createElement("a", {
+    href: "datenschutz.html"
+  }, "Datenschutz")));
 }
 Object.assign(window, {
   Topbar,
