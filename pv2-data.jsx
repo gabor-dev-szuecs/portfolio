@@ -4,7 +4,7 @@ const CONTENT = {
   name: 'Gabor Szücs',
   role: 'Senior Java Backend Engineer',
   roleLong: 'Backend Systems · APIs · Enterprise Integrationen',
-  location: 'Ecknach, Bayern · DE',
+  location: 'Aichach, Bayern · DE',
   tagline: {
     de: 'Robuste Backend-Systeme und Integrationen für produktive Unternehmensprozesse.',
     en: 'Robust backend systems and integrations for production enterprise workflows.',

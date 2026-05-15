@@ -100,7 +100,7 @@ function Hero() {
         <div className="hero-meta" data-reveal style={{ transitionDelay: "240ms" }}>
           <div className="hero-meta-item">
             <span className="hero-meta-label">Standort</span>
-            <span className="hero-meta-value">Ecknach, Bayern</span>
+            <span className="hero-meta-value">Aichach, Bayern</span>
           </div>
           <div className="hero-meta-item">
             <span className="hero-meta-label">Sprachen</span>
@@ -325,7 +325,7 @@ function Impressum() {
         <div className="impressum-body" data-reveal>
           <div className="impressum-block">
             <h4>Verantwortlich</h4>
-            <p>Gabor Szücs<br />Ecknach, Bayern<br />Deutschland</p>
+            <p>Gabor Szücs<br />Aichach, Bayern<br />Deutschland</p>
           </div>
           <div className="impressum-block">
             <h4>Kontakt</h4>
@@ -356,7 +356,7 @@ function Contact() {
           <div className="contact-info">
             <span className="eyebrow" style={{ marginBottom: 12 }}>Aktuell verfügbar</span>
             <h3>Backend, Integration, Legacy-Migration<br/>oder einfach eine Frage?</h3>
-            <p>Remote oder hybrid · EU-Zeitzone · Ecknach, Bayern.</p>
+            <p>Remote oder hybrid · EU-Zeitzone · Aichach, Bayern.</p>
             <div className="contact-actions" style={{ marginTop: 24 }}>
               <a href="https://www.linkedin.com/in/gabor-szuecs-2649962b3" target="_blank" rel="noopener" className="contact-action">
                 <span className="contact-action-label">
@@ -387,7 +387,7 @@ function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-meta">
-          <span><b>Gabor Szücs</b> · Ecknach, Bayern</span>
+          <span><b>Gabor Szücs</b> · Aichach, Bayern</span>
           <span><a href="#impressum" style={{ color: "var(--fg-subtle)" }}>Impressum</a> · © 2026</span>
         </div>
         <div className="footer-meta">
