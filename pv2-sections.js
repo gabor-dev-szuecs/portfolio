@@ -1,5 +1,39 @@
 // pv2-sections.jsx — Hero, About, Projects, Stack, Languages, Contact, Footer
 
+function HeroIntroOverlay() {
+  const [phase, setPhase] = React.useState(() => {
+    try {
+      return sessionStorage.getItem('gs-intro') === '1' ? 'done' : 'playing';
+    } catch {
+      return 'playing';
+    }
+  });
+  const dismiss = React.useCallback(() => {
+    setPhase('fading');
+    try {
+      sessionStorage.setItem('gs-intro', '1');
+    } catch {}
+    setTimeout(() => setPhase('done'), 700);
+  }, []);
+  if (phase === 'done') return null;
+  return /*#__PURE__*/React.createElement("div", {
+    className: `intro-overlay${phase === 'fading' ? ' fading' : ''}`
+  }, /*#__PURE__*/React.createElement("video", {
+    autoPlay: true,
+    muted: true,
+    playsInline: true,
+    src: "assets/hero-intro.mp4",
+    onEnded: dismiss,
+    style: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover'
+    }
+  }), /*#__PURE__*/React.createElement("button", {
+    className: "intro-skip",
+    onClick: dismiss
+  }, "Skip \u2192"));
+}
 function Topbar({
   onToggleTheme
 }) {
@@ -210,6 +244,15 @@ function Stack() {
   }, "Werkzeuge \xB7 Inventar")), /*#__PURE__*/React.createElement("h2", {
     className: "section-title"
   }, "Tech ", /*#__PURE__*/React.createElement("em", null, "Stack."))), /*#__PURE__*/React.createElement("div", {
+    className: "system-diagram-wrap reveal"
+  }, /*#__PURE__*/React.createElement("video", {
+    autoPlay: true,
+    muted: true,
+    loop: true,
+    playsInline: true,
+    src: "assets/system-diagram.mp4",
+    "aria-label": "Tech-Stack Architektur-\xDCbersicht"
+  })), /*#__PURE__*/React.createElement("div", {
     className: "stack-grid reveal"
   }, c.stack.map(s => /*#__PURE__*/React.createElement("div", {
     className: "stack-cat",
@@ -417,6 +460,7 @@ function Footer() {
   }, "Datenschutz")));
 }
 Object.assign(window, {
+  HeroIntroOverlay,
   Topbar,
   Hero,
   About,

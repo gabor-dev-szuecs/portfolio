@@ -1,5 +1,34 @@
 // pv2-sections.jsx — Hero, About, Projects, Stack, Languages, Contact, Footer
 
+function HeroIntroOverlay() {
+  const [phase, setPhase] = React.useState(() => {
+    try { return sessionStorage.getItem('gs-intro') === '1' ? 'done' : 'playing'; }
+    catch { return 'playing'; }
+  });
+
+  const dismiss = React.useCallback(() => {
+    setPhase('fading');
+    try { sessionStorage.setItem('gs-intro', '1'); } catch {}
+    setTimeout(() => setPhase('done'), 700);
+  }, []);
+
+  if (phase === 'done') return null;
+
+  return (
+    <div className={`intro-overlay${phase === 'fading' ? ' fading' : ''}`}>
+      <video
+        autoPlay
+        muted
+        playsInline
+        src="assets/hero-intro.mp4"
+        onEnded={dismiss}
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+      />
+      <button className="intro-skip" onClick={dismiss}>Skip →</button>
+    </div>
+  );
+}
+
 function Topbar({ onToggleTheme }) {
   const scrolled = useScrolled(8);
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -174,6 +203,16 @@ function Stack() {
         <h2 className="section-title">
           Tech <em>Stack.</em>
         </h2>
+      </div>
+      <div className="system-diagram-wrap reveal">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          src="assets/system-diagram.mp4"
+          aria-label="Tech-Stack Architektur-Übersicht"
+        />
       </div>
       <div className="stack-grid reveal">
         {c.stack.map((s) =>
@@ -356,4 +395,4 @@ function Footer() {
 
 }
 
-Object.assign(window, { Topbar, Hero, About, Projects, Stack, Languages, References, Contact, Footer });
+Object.assign(window, { HeroIntroOverlay, Topbar, Hero, About, Projects, Stack, Languages, References, Contact, Footer });

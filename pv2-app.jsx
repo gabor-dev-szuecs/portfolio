@@ -14,6 +14,7 @@ function App() {
 
   return (
     <>
+      <HeroIntroOverlay />
       <CursorRing enabled={true} />
       <Topbar onToggleTheme={(el) => toggleTheme(el)} />
       <Hero />

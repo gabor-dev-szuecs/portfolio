@@ -11,7 +11,7 @@ function App() {
     } catch (e) {}
   }, []);
   useReveal();
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(CursorRing, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(HeroIntroOverlay, null), /*#__PURE__*/React.createElement(CursorRing, {
     enabled: true
   }), /*#__PURE__*/React.createElement(Topbar, {
     onToggleTheme: el => toggleTheme(el)

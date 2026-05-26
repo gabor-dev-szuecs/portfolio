@@ -4,3 +4,6 @@ docs/superpowers/
 node_modules/
 package.json
 package-lock.json
+remotion/node_modules/
+remotion/package-lock.json
+remotion/.cache/
