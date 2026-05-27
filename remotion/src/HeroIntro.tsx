@@ -21,8 +21,8 @@ const TEXT_SOFT = "#c9c2b3";
 const TEXT_MUTE = "#8a8273";
 
 const FULL_NAME = "Gabor Szücs";
-const TAGS = ["Backend", "APIs", "ERP-Integration"];
-const TAG_FRAMES = [84, 93, 102];
+const TAGLINE = "Connecting systems, APIs and intelligent workflows.";
+const TAGLINE_FRAME = 84;
 
 export const HeroIntro: React.FC = () => {
   const frame = useCurrentFrame();
@@ -174,35 +174,25 @@ export const HeroIntro: React.FC = () => {
             alignSelf: "flex-start",
           }}
         >
-          Senior Java Backend Engineer
+          Backend Engineer
         </div>
 
-        {/* Focus tags */}
+        {/* Tagline */}
         <div
           style={{
             marginTop: 24,
-            display: "flex",
-            alignItems: "center",
             alignSelf: "flex-start",
             fontFamily: jetbrains,
             fontSize: 13,
             letterSpacing: "0.06em",
-          }}
-        >
-          {TAGS.map((tag, i) => {
-            const op = interpolate(frame, [TAG_FRAMES[i], TAG_FRAMES[i] + 9], [0, 1], {
+            color: ACCENT,
+            opacity: interpolate(frame, [TAGLINE_FRAME, TAGLINE_FRAME + 12], [0, 1], {
               extrapolateLeft: "clamp",
               extrapolateRight: "clamp",
-            });
-            return (
-              <span key={tag} style={{ display: "flex", alignItems: "center", opacity: op }}>
-                {i > 0 && (
-                  <span style={{ color: TEXT_MUTE, margin: "0 12px" }}>·</span>
-                )}
-                <span style={{ color: ACCENT }}>{tag}</span>
-              </span>
-            );
-          })}
+            }),
+          }}
+        >
+          {TAGLINE}
         </div>
       </div>
     </AbsoluteFill>

@@ -2,7 +2,7 @@
 
 const CONTENT = {
   name: 'Gabor Szücs',
-  role: 'Senior Java Backend Engineer',
+  role: 'Backend Engineer',
   roleLong: 'Backend Systems · APIs · Enterprise Integrationen',
   location: 'Aichach, Bayern · DE',
   tagline: {
