@@ -631,8 +631,16 @@ html[data-mode="mono"] .project-main h3 {
   display: block;
   height: auto;
 }
+/* Desktop: horizontal video sichtbar, portrait versteckt */
+.diagram-desktop { display: block; }
+.diagram-mobile  { display: none; }
 
 /* ────── Responsive ────── */
+@media (max-width: 700px) {
+  /* Auf Mobile: Portrait-Video, Desktop-Video aus */
+  .diagram-desktop { display: none; }
+  .diagram-mobile  { display: block; }
+}
 @media (max-width: 900px) {
   .shell { padding-left: 24px; padding-right: 24px; }
   .topbar-nav { display: none; }

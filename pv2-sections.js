@@ -246,11 +246,20 @@ function Stack() {
   }, "Tech ", /*#__PURE__*/React.createElement("em", null, "Stack."))), /*#__PURE__*/React.createElement("div", {
     className: "system-diagram-wrap reveal"
   }, /*#__PURE__*/React.createElement("video", {
+    className: "diagram-desktop",
     autoPlay: true,
     muted: true,
     loop: true,
     playsInline: true,
     src: "assets/system-diagram.mp4",
+    "aria-label": "Tech-Stack Architektur-\xDCbersicht"
+  }), /*#__PURE__*/React.createElement("video", {
+    className: "diagram-mobile",
+    autoPlay: true,
+    muted: true,
+    loop: true,
+    playsInline: true,
+    src: "assets/system-diagram-mobile.mp4",
     "aria-label": "Tech-Stack Architektur-\xDCbersicht"
   })), /*#__PURE__*/React.createElement("div", {
     className: "stack-grid reveal"

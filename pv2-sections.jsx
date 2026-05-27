@@ -206,11 +206,15 @@ function Stack() {
       </div>
       <div className="system-diagram-wrap reveal">
         <video
-          autoPlay
-          muted
-          loop
-          playsInline
+          className="diagram-desktop"
+          autoPlay muted loop playsInline
           src="assets/system-diagram.mp4"
+          aria-label="Tech-Stack Architektur-Übersicht"
+        />
+        <video
+          className="diagram-mobile"
+          autoPlay muted loop playsInline
+          src="assets/system-diagram-mobile.mp4"
           aria-label="Tech-Stack Architektur-Übersicht"
         />
       </div>

@@ -2,6 +2,7 @@ import "./index.css";
 import { Composition } from "remotion";
 import { HeroIntro } from "./HeroIntro";
 import { SystemDiagram } from "./SystemDiagram";
+import { SystemDiagramMobile } from "./SystemDiagramMobile";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ export const RemotionRoot: React.FC = () => {
         height={720}
       />
 
-      {/* 6 seconds — loops in the Stack section */}
+      {/* 6 seconds — loops in the Stack section (desktop) */}
       <Composition
         id="SystemDiagram"
         component={SystemDiagram}
@@ -24,6 +25,16 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={1280}
         height={540}
+      />
+
+      {/* 5.5 seconds — portrait version for mobile (540×900) */}
+      <Composition
+        id="SystemDiagramMobile"
+        component={SystemDiagramMobile}
+        durationInFrames={170}
+        fps={30}
+        width={540}
+        height={900}
       />
     </>
   );
