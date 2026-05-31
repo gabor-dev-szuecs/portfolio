@@ -14,16 +14,19 @@ function App() {
 
   return (
     <>
+      <a className="skip-link" href="#main">Zum Inhalt springen</a>
       <HeroIntroOverlay />
       <CursorRing enabled={true} />
       <Topbar onToggleTheme={(el) => toggleTheme(el)} />
-      <Hero />
-      <About />
-      <Projects />
-      <Stack />
-      <Languages />
-      <References />
-      <Contact />
+      <main id="main">
+        <Hero />
+        <About />
+        <Projects />
+        <Stack />
+        <Languages />
+        <References />
+        <Contact />
+      </main>
       <Footer />
     </>
   );

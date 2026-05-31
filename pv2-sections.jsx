@@ -1,8 +1,16 @@
 // pv2-sections.jsx — Hero, About, Projects, Stack, Languages, Contact, Footer
 
+function prefersReducedMotion() {
+  try { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+  catch { return false; }
+}
+
 function HeroIntroOverlay() {
   const [phase, setPhase] = React.useState(() => {
-    try { return sessionStorage.getItem('gs-intro') === '1' ? 'done' : 'playing'; }
+    try {
+      if (prefersReducedMotion()) return 'done';
+      return sessionStorage.getItem('gs-intro') === '1' ? 'done' : 'playing';
+    }
     catch { return 'playing'; }
   });
 
@@ -43,7 +51,7 @@ function Topbar({ onToggleTheme }) {
     <header className={`topbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="topbar-left">
         <div className="topbar-logo-wrap">
-          <img className="topbar-logo" src="GS.png" alt="GS" />
+          <img className="topbar-logo" src="GS.png" alt="GS" width="38" height="38" />
         </div>
         <span className="topbar-name" style={{ fontSize: "20px" }}>Gabor Szücs</span>
       </div>
@@ -139,7 +147,7 @@ function About() {
       </div>
       <div className="about-grid">
         <div className="about-photo reveal">
-          <img src="portrait-nobg.png" alt="Gabor Szücs" className="about-portrait" />
+          <img src="portrait-nobg.webp" alt="Gabor Szücs" className="about-portrait" width="900" height="1246" loading="lazy" decoding="async" />
         </div>
         <div className="about-body reveal">
           {c.about.map((p, i) =>
@@ -193,6 +201,7 @@ function Projects() {
 
 function Stack() {
   const c = window.CONTENT;
+  const reduce = prefersReducedMotion();
   return (
     <section className="section shell" id="stack">
       <div className="section-head reveal">
@@ -206,19 +215,21 @@ function Stack() {
       </div>
       <div className="system-diagram-wrap reveal">
         <video
-          autoPlay
+          autoPlay={!reduce}
           muted
-          loop
+          loop={!reduce}
           playsInline
+          preload="metadata"
           aria-label="Tech-Stack Architektur-Übersicht"
           className="diagram-desktop"
           src="assets/system-diagram.mp4"
         />
         <video
-          autoPlay
+          autoPlay={!reduce}
           muted
-          loop
+          loop={!reduce}
           playsInline
+          preload="metadata"
           aria-label="Tech-Stack Architektur-Übersicht"
           className="diagram-mobile"
           src="assets/system-diagram-mobile.mp4"
@@ -288,7 +299,7 @@ function References() {
       </div>
       <div className="ref-grid reveal">
         <div className="ref-card">
-          <img src="JW-Logo.png" alt="JW Software" className="ref-logo" />
+          <img src="JW-Logo.png" alt="JW Software" className="ref-logo" loading="lazy" decoding="async" />
           <h3 className="ref-name">JW Software</h3>
           <p className="ref-desc">Softwarehaus mit 40 Jahren Erfahrung in der Zeiterfassung — Modernisierung gewachsener Systeme.</p>
           <a href="https://www.jw-software.de/" target="_blank" rel="noopener" className="ref-link">jw-software.de ↗</a>

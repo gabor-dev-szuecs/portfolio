@@ -1,8 +1,16 @@
 // pv2-sections.jsx — Hero, About, Projects, Stack, Languages, Contact, Footer
 
+function prefersReducedMotion() {
+  try {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  } catch {
+    return false;
+  }
+}
 function HeroIntroOverlay() {
   const [phase, setPhase] = React.useState(() => {
     try {
+      if (prefersReducedMotion()) return 'done';
       return sessionStorage.getItem('gs-intro') === '1' ? 'done' : 'playing';
     } catch {
       return 'playing';
@@ -64,7 +72,9 @@ function Topbar({
   }, /*#__PURE__*/React.createElement("img", {
     className: "topbar-logo",
     src: "GS.png",
-    alt: "GS"
+    alt: "GS",
+    width: "38",
+    height: "38"
   })), /*#__PURE__*/React.createElement("span", {
     className: "topbar-name",
     style: {
@@ -176,9 +186,13 @@ function About() {
   }, /*#__PURE__*/React.createElement("div", {
     className: "about-photo reveal"
   }, /*#__PURE__*/React.createElement("img", {
-    src: "portrait-nobg.png",
+    src: "portrait-nobg.webp",
     alt: "Gabor Sz\xFCcs",
-    className: "about-portrait"
+    className: "about-portrait",
+    width: "900",
+    height: "1246",
+    loading: "lazy",
+    decoding: "async"
   })), /*#__PURE__*/React.createElement("div", {
     className: "about-body reveal"
   }, c.about.map((p, i) => /*#__PURE__*/React.createElement("p", {
@@ -232,6 +246,7 @@ function Projects() {
 }
 function Stack() {
   const c = window.CONTENT;
+  const reduce = prefersReducedMotion();
   return /*#__PURE__*/React.createElement("section", {
     className: "section shell",
     id: "stack"
@@ -246,18 +261,20 @@ function Stack() {
   }, "Tech ", /*#__PURE__*/React.createElement("em", null, "Stack."))), /*#__PURE__*/React.createElement("div", {
     className: "system-diagram-wrap reveal"
   }, /*#__PURE__*/React.createElement("video", {
-    autoPlay: true,
+    autoPlay: !reduce,
     muted: true,
-    loop: true,
+    loop: !reduce,
     playsInline: true,
+    preload: "metadata",
     "aria-label": "Tech-Stack Architektur-\xDCbersicht",
     className: "diagram-desktop",
     src: "assets/system-diagram.mp4"
   }), /*#__PURE__*/React.createElement("video", {
-    autoPlay: true,
+    autoPlay: !reduce,
     muted: true,
-    loop: true,
+    loop: !reduce,
     playsInline: true,
+    preload: "metadata",
     "aria-label": "Tech-Stack Architektur-\xDCbersicht",
     className: "diagram-mobile",
     src: "assets/system-diagram-mobile.mp4"
@@ -327,7 +344,9 @@ function References() {
   }, /*#__PURE__*/React.createElement("img", {
     src: "JW-Logo.png",
     alt: "JW Software",
-    className: "ref-logo"
+    className: "ref-logo",
+    loading: "lazy",
+    decoding: "async"
   }), /*#__PURE__*/React.createElement("h3", {
     className: "ref-name"
   }, "JW Software"), /*#__PURE__*/React.createElement("p", {
