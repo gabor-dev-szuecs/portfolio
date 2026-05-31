@@ -90,7 +90,7 @@ const CONTENT = {
     when: '2023 — 2025'
   },
   contact: {
-    email: 'mailto:gabor.szuecs@example.com',
+    email: 'mailto:contact@gabor.engineer',
     linkedin: 'https://linkedin.com/in/gabor-szuecs-2649962b3',
     github: 'https://github.com/gabor-dev-szuecs'
   }

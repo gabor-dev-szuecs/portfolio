@@ -88,7 +88,7 @@ function Hero() {
   const c = window.CONTENT;
   return (
     <section className="hero shell">
-      <div className="hero-kicker reveal">Java Backend Engineer · Portfolio</div>
+      <div className="hero-kicker reveal">Automatisierung, Schnittstellen &amp; Unternehmenssoftware</div>
       <h1 className="hero-title reveal">
         Backend-Systeme,<br />
         die <em>produktiv</em> laufen.
@@ -206,16 +206,22 @@ function Stack() {
       </div>
       <div className="system-diagram-wrap reveal">
         <video
-          className="diagram-desktop"
-          autoPlay muted loop playsInline
-          src="assets/system-diagram.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
           aria-label="Tech-Stack Architektur-Übersicht"
+          className="diagram-desktop"
+          src="assets/system-diagram.mp4"
         />
         <video
-          className="diagram-mobile"
-          autoPlay muted loop playsInline
-          src="assets/system-diagram-mobile.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
           aria-label="Tech-Stack Architektur-Übersicht"
+          className="diagram-mobile"
+          src="assets/system-diagram-mobile.mp4"
         />
       </div>
       <div className="stack-grid reveal">

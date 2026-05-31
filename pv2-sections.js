@@ -123,7 +123,7 @@ function Hero() {
     className: "hero shell"
   }, /*#__PURE__*/React.createElement("div", {
     className: "hero-kicker reveal"
-  }, "Java Backend Engineer \xB7 Portfolio"), /*#__PURE__*/React.createElement("h1", {
+  }, "Automatisierung, Schnittstellen & Unternehmenssoftware"), /*#__PURE__*/React.createElement("h1", {
     className: "hero-title reveal"
   }, "Backend-Systeme,", /*#__PURE__*/React.createElement("br", null), "die ", /*#__PURE__*/React.createElement("em", null, "produktiv"), " laufen."), /*#__PURE__*/React.createElement("div", {
     className: "hero-grid"
@@ -246,21 +246,21 @@ function Stack() {
   }, "Tech ", /*#__PURE__*/React.createElement("em", null, "Stack."))), /*#__PURE__*/React.createElement("div", {
     className: "system-diagram-wrap reveal"
   }, /*#__PURE__*/React.createElement("video", {
+    autoPlay: true,
+    muted: true,
+    loop: true,
+    playsInline: true,
+    "aria-label": "Tech-Stack Architektur-\xDCbersicht",
     className: "diagram-desktop",
-    autoPlay: true,
-    muted: true,
-    loop: true,
-    playsInline: true,
-    src: "assets/system-diagram.mp4",
-    "aria-label": "Tech-Stack Architektur-\xDCbersicht"
+    src: "assets/system-diagram.mp4"
   }), /*#__PURE__*/React.createElement("video", {
-    className: "diagram-mobile",
     autoPlay: true,
     muted: true,
     loop: true,
     playsInline: true,
-    src: "assets/system-diagram-mobile.mp4",
-    "aria-label": "Tech-Stack Architektur-\xDCbersicht"
+    "aria-label": "Tech-Stack Architektur-\xDCbersicht",
+    className: "diagram-mobile",
+    src: "assets/system-diagram-mobile.mp4"
   })), /*#__PURE__*/React.createElement("div", {
     className: "stack-grid reveal"
   }, c.stack.map(s => /*#__PURE__*/React.createElement("div", {

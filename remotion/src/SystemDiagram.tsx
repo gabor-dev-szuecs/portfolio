@@ -2,9 +2,7 @@ import {
   AbsoluteFill,
   Easing,
   interpolate,
-  spring,
   useCurrentFrame,
-  useVideoConfig,
 } from "remotion";
 import { loadFont as loadInter } from "@remotion/google-fonts/Inter";
 import { loadFont as loadJetBrains } from "@remotion/google-fonts/JetBrainsMono";
@@ -24,9 +22,9 @@ const RULE = "#2a2723";
 const NODE_W = 224;
 const NODE_H = 134;
 const ARROW_GAP = 64;
-const TOTAL_W = 4 * NODE_W + 3 * ARROW_GAP; // 896 + 192 = 1088
-const OFFSET_X = (1280 - TOTAL_W) / 2; // 96
-const CENTER_Y = (540 - NODE_H) / 2; // 203
+const TOTAL_W = 4 * NODE_W + 3 * ARROW_GAP;
+const OFFSET_X = (1280 - TOTAL_W) / 2;
+const CENTER_Y = (540 - NODE_H) / 2;
 
 const NODES = [
   {
@@ -51,22 +49,7 @@ const NODES = [
   },
 ];
 
-const NODE_APPEAR = [8, 48, 88, 128];
-const ARROW_APPEAR = [28, 68, 108];
-const PULSE_START = 155;
-
-function NodeCard({
-  node,
-  spr,
-  x,
-}: {
-  node: (typeof NODES)[0];
-  spr: number;
-  x: number;
-}) {
-  const opacity = spr;
-  const translateY = interpolate(spr, [0, 1], [18, 0]);
-
+function NodeCard({ node, x }: { node: (typeof NODES)[0]; x: number }) {
   return (
     <div
       style={{
@@ -75,11 +58,8 @@ function NodeCard({
         top: CENTER_Y,
         width: NODE_W,
         height: NODE_H,
-        opacity,
-        transform: `translateY(${translateY}px)`,
       }}
     >
-      {/* Card */}
       <div
         style={{
           width: "100%",
@@ -91,7 +71,6 @@ function NodeCard({
           padding: "12px 14px",
           display: "flex",
           flexDirection: "column",
-          gap: 0,
         }}
       >
         <div
@@ -126,23 +105,8 @@ function NodeCard({
   );
 }
 
-function ArrowLine({
-  progress,
-  x,
-}: {
-  progress: number;
-  x: number;
-}) {
+function ArrowLine({ x }: { x: number }) {
   const lineLen = ARROW_GAP - 16;
-  const dashProgress = interpolate(progress, [0, 1], [lineLen, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-  const headOp = interpolate(progress, [0.7, 1], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-
   return (
     <div
       style={{
@@ -155,50 +119,29 @@ function ArrowLine({
         alignItems: "center",
       }}
     >
-      <svg
-        width={ARROW_GAP}
-        height={24}
-        style={{ overflow: "visible" }}
-      >
+      <svg width={ARROW_GAP} height={24} style={{ overflow: "visible" }}>
         <line
-          x1={8}
-          y1={12}
-          x2={ARROW_GAP - 8}
-          y2={12}
-          stroke={RULE}
-          strokeWidth={1.5}
-          strokeDasharray={lineLen}
-          strokeDashoffset={dashProgress}
+          x1={8} y1={12} x2={ARROW_GAP - 8} y2={12}
+          stroke={RULE} strokeWidth={1.5}
+          strokeDasharray={lineLen} strokeDashoffset={0}
         />
         <polygon
           points={`${ARROW_GAP - 8},8 ${ARROW_GAP},12 ${ARROW_GAP - 8},16`}
           fill={TEXT_MUTE}
-          opacity={headOp}
         />
       </svg>
     </div>
   );
 }
 
-function DataPulse({
-  arrowIndex,
-  frame,
-  allVisible,
-}: {
-  arrowIndex: number;
-  frame: number;
-  allVisible: boolean;
-}) {
-  if (!allVisible) return null;
-
+function DataPulse({ arrowIndex, frame }: { arrowIndex: number; frame: number }) {
   const x0 = OFFSET_X + arrowIndex * (NODE_W + ARROW_GAP) + NODE_W;
   const xEnd = x0 + ARROW_GAP - 12;
   const y = CENTER_Y + NODE_H / 2;
 
-  // Stagger each arrow's pulse by arrowIndex * 18 frames
-  const phaseOffset = arrowIndex * 18;
   const period = 54;
-  const t = ((frame - PULSE_START - phaseOffset) % period + period) % period;
+  const phaseOffset = arrowIndex * 18;
+  const t = ((frame - phaseOffset) % period + period) % period;
 
   if (t > 36) return null;
 
@@ -226,26 +169,6 @@ function DataPulse({
 
 export const SystemDiagram: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-
-  // Title fade
-  const titleOp = interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp" });
-
-  // Node springs
-  const nodeSprings = NODE_APPEAR.map((startF) =>
-    spring({ frame: frame - startF, fps, config: { damping: 24, stiffness: 90 } })
-  );
-
-  // Arrow progress
-  const arrowProgress = ARROW_APPEAR.map((startF) =>
-    interpolate(frame, [startF, startF + 18], [0, 1], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-      easing: Easing.out(Easing.cubic),
-    })
-  );
-
-  const allVisible = frame >= PULSE_START;
 
   return (
     <AbsoluteFill style={{ backgroundColor: BG }}>
@@ -259,7 +182,6 @@ export const SystemDiagram: React.FC = () => {
             "linear-gradient(90deg, rgba(243,239,231,0.03) 1px, transparent 1px)",
           ].join(","),
           backgroundSize: "80px 80px",
-          opacity: titleOp,
         }}
       />
 
@@ -276,7 +198,6 @@ export const SystemDiagram: React.FC = () => {
           letterSpacing: "0.12em",
           textTransform: "uppercase" as const,
           color: TEXT_MUTE,
-          opacity: titleOp,
         }}
       >
         System Architecture
@@ -295,34 +216,24 @@ export const SystemDiagram: React.FC = () => {
           fontWeight: 300,
           color: TEXT,
           letterSpacing: "-0.01em",
-          opacity: titleOp,
         }}
       >
         How the systems connect
       </div>
 
-      {/* Arrows */}
-      {ARROW_APPEAR.map((_, i) => (
-        <ArrowLine
-          key={i}
-          progress={arrowProgress[i]}
-          x={OFFSET_X + i * (NODE_W + ARROW_GAP)}
-        />
-      ))}
-
-      {/* Node cards */}
-      {NODES.map((node, i) => (
-        <NodeCard
-          key={node.title}
-          node={node}
-          spr={nodeSprings[i]}
-          x={OFFSET_X + i * (NODE_W + ARROW_GAP)}
-        />
-      ))}
-
-      {/* Data pulses */}
+      {/* Static arrows */}
       {[0, 1, 2].map((i) => (
-        <DataPulse key={i} arrowIndex={i} frame={frame} allVisible={allVisible} />
+        <ArrowLine key={i} x={OFFSET_X + i * (NODE_W + ARROW_GAP)} />
+      ))}
+
+      {/* Static node cards */}
+      {NODES.map((node, i) => (
+        <NodeCard key={node.title} node={node} x={OFFSET_X + i * (NODE_W + ARROW_GAP)} />
+      ))}
+
+      {/* Pulsing dots — only thing that animates */}
+      {[0, 1, 2].map((i) => (
+        <DataPulse key={i} arrowIndex={i} frame={frame} />
       ))}
 
       {/* Bottom caption */}
@@ -337,10 +248,6 @@ export const SystemDiagram: React.FC = () => {
           fontSize: 11,
           color: TEXT_MUTE,
           letterSpacing: "0.06em",
-          opacity: interpolate(frame, [145, 160], [0, 1], {
-            extrapolateLeft: "clamp",
-            extrapolateRight: "clamp",
-          }),
         }}
       >
         Java · Spring Boot · Docker · PostgreSQL · ERP Integration

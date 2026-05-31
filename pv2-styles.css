@@ -621,9 +621,12 @@ html[data-mode="mono"] .project-main h3 {
 /* ────── Remotion: System Diagram ────── */
 .system-diagram-wrap {
   margin-bottom: 32px;
-  border-radius: 6px;
+  margin-left: calc(50% - 50vw);
+  width: 100vw;
+  border-radius: 0;
   overflow: hidden;
-  border: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
   background: #0e0d0c;
 }
 .system-diagram-wrap video {
@@ -631,16 +634,9 @@ html[data-mode="mono"] .project-main h3 {
   display: block;
   height: auto;
 }
-/* Desktop: horizontal video sichtbar, portrait versteckt */
-.diagram-desktop { display: block; }
-.diagram-mobile  { display: none; }
+.system-diagram-wrap .diagram-mobile { display: none; }
 
 /* ────── Responsive ────── */
-@media (max-width: 700px) {
-  /* Auf Mobile: Portrait-Video, Desktop-Video aus */
-  .diagram-desktop { display: none; }
-  .diagram-mobile  { display: block; }
-}
 @media (max-width: 900px) {
   .shell { padding-left: 24px; padding-right: 24px; }
   .topbar-nav { display: none; }
@@ -658,4 +654,6 @@ html[data-mode="mono"] .project-main h3 {
   .project { grid-template-columns: 60px 1fr; }
   .project-body { grid-column: 1 / -1; padding-left: 60px; }
   .lang-grid { grid-template-columns: 1fr; }
+  .system-diagram-wrap .diagram-desktop { display: none; }
+  .system-diagram-wrap .diagram-mobile { display: block; }
 }

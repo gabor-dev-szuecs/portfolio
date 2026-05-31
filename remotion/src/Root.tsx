@@ -17,24 +17,24 @@ export const RemotionRoot: React.FC = () => {
         height={720}
       />
 
-      {/* 6 seconds — loops in the Stack section (desktop) */}
+      {/* ~1.8s seamless loop — only pulse dots animate */}
       <Composition
         id="SystemDiagram"
         component={SystemDiagram}
-        durationInFrames={190}
+        durationInFrames={54}
         fps={30}
         width={1280}
         height={540}
       />
 
-      {/* 5.5 seconds — portrait version for mobile (540×900) */}
+      {/* Mobile portrait — same seamless loop */}
       <Composition
         id="SystemDiagramMobile"
         component={SystemDiagramMobile}
-        durationInFrames={170}
+        durationInFrames={54}
         fps={30}
-        width={540}
-        height={900}
+        width={390}
+        height={700}
       />
     </>
   );
